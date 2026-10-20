@@ -1,1 +1,3067 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thu Quỹ Bổ Sung Q4/2026 — CLASS FUND</title>
+  <meta name="description" content="Trang thông tin kế hoạch thu quỹ lớp Q4/2026 lớp 2505QLNG. Minh bạch từng khoản quỹ, chi tiết kế hoạch tài chính và thông tin chuyển khoản.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -------------------------------------------------------------
+       ROOT DESIGN TOKENS & THEMING (Fintech Editorial Identity)
+       ------------------------------------------------------------- */
+    :root {
+      --font-sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', SFMono-Regular, Consolas, Menlo, monospace;
+
+      /* Light Theme Palette */
+      --bg-page: #F3F6FB;
+      --bg-surface: #FFFFFF;
+      --bg-surface-elevated: #FFFFFF;
+      --bg-surface-subtle: #EBF0F8;
+      --bg-surface-inset: #F8FAFC;
+
+      --text-primary: #101A2C;
+      --text-secondary: #475569;
+      --text-tertiary: #64748B;
+      --text-muted: #94A3B8;
+
+      --border-subtle: #E2E8F0;
+      --border-focus: #477BFF;
+      --border-strong: #CBD5E1;
+
+      --primary: #173B68;
+      --primary-light: #255899;
+      --accent: #477BFF;
+      --accent-subtle: rgba(71, 123, 255, 0.08);
+      --accent-glow: rgba(71, 123, 255, 0.15);
+
+      --badge-income-bg: rgba(71, 123, 255, 0.1);
+      --badge-income-text: #1E4ED8;
+      --badge-expense-bg: rgba(239, 68, 68, 0.08);
+      --badge-expense-text: #B91C1C;
+      --badge-balance-bg: rgba(16, 185, 129, 0.1);
+      --badge-balance-text: #047857;
+
+      --success: #059669;
+      --success-bg: #ECFDF5;
+      --warning: #D97706;
+      --warning-bg: #FFFBEB;
+
+      --shadow-sm: 0 1px 2px 0 rgba(16, 26, 44, 0.05);
+      --shadow-md: 0 4px 12px -2px rgba(16, 26, 44, 0.08), 0 2px 6px -1px rgba(16, 26, 44, 0.04);
+      --shadow-lg: 0 12px 24px -4px rgba(16, 26, 44, 0.09), 0 4px 10px -2px rgba(16, 26, 44, 0.04);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+
+      --nav-height: 72px;
+      --container-max: 1160px;
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #0B111D;
+      --bg-surface: #101A2C;
+      --bg-surface-elevated: #16243C;
+      --bg-surface-subtle: #1C2C47;
+      --bg-surface-inset: #0D1624;
+
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-tertiary: #94A3B8;
+      --text-muted: #64748B;
+
+      --border-subtle: #1F304E;
+      --border-focus: #477BFF;
+      --border-strong: #2D4268;
+
+      --primary: #477BFF;
+      --primary-light: #6A96FF;
+      --accent: #477BFF;
+      --accent-subtle: rgba(71, 123, 255, 0.15);
+      --accent-glow: rgba(71, 123, 255, 0.25);
+
+      --badge-income-bg: rgba(71, 123, 255, 0.2);
+      --badge-income-text: #93C5FD;
+      --badge-expense-bg: rgba(239, 68, 68, 0.16);
+      --badge-expense-text: #FCA5A5;
+      --badge-balance-bg: rgba(16, 185, 129, 0.18);
+      --badge-balance-text: #6EE7B7;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 12px 28px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+    }
+
+    /* -------------------------------------------------------------
+       BASE & RESET
+       ------------------------------------------------------------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+    }
+
+    input {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--border-focus);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* -------------------------------------------------------------
+       HEADER & NAVIGATION
+       ------------------------------------------------------------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(243, 246, 251, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    [data-theme="dark"] .site-header {
+      background-color: rgba(11, 17, 29, 0.85);
+    }
+
+    .site-header.scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-height);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #173B68, #477BFF);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(71, 123, 255, 0.25);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      background-color: var(--accent-subtle);
+      color: var(--accent);
+      border-radius: var(--radius-sm);
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 8px 4px;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+      background-color: var(--bg-surface-subtle);
+    }
+
+    .theme-toggle .icon-moon { display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+
+    .btn-header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      background-color: var(--primary);
+      color: #FFFFFF !important;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    [data-theme="dark"] .btn-header-cta {
+      background-color: var(--accent);
+      color: #0B111D !important;
+    }
+
+    .btn-header-cta:hover {
+      opacity: 0.94;
+      transform: translateY(-1px);
+    }
+
+    /* Mobile scroll navigation bar */
+    .mobile-subnav {
+      display: none;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 8px 16px;
+      gap: 8px;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .mobile-subnav::-webkit-scrollbar { display: none; }
+
+    .mobile-subnav-link {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-surface-subtle);
+      color: var(--text-secondary);
+    }
+
+    /* -------------------------------------------------------------
+       HERO SECTION
+       ------------------------------------------------------------- */
+    .hero-section {
+      padding: 56px 0 48px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background-color: var(--accent-subtle);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: 2.85rem;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #173B68, #477BFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    [data-theme="dark"] .hero-title span {
+      background: linear-gradient(135deg, #60A5FA, #93C5FD);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      min-height: 46px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #173B68, #102B4C);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(23, 59, 104, 0.25);
+    }
+
+    [data-theme="dark"] .btn-primary {
+      background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(23, 59, 104, 0.35);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-surface-subtle);
+      border-color: var(--border-focus);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Geometric Graphic Composition */
+    .hero-graphic {
+      position: relative;
+    }
+
+    .editorial-card {
+      background: linear-gradient(145deg, var(--bg-surface), var(--bg-surface-elevated));
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .editorial-card::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .editorial-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background-color: var(--accent-subtle);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 18px;
+    }
+
+    .editorial-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-tertiary);
+      margin-bottom: 6px;
+    }
+
+    .editorial-amount {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .editorial-metric-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px dashed var(--border-subtle);
+    }
+
+    .editorial-metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .editorial-metric-val {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .editorial-metric-lbl {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    .editorial-disclaimer {
+      margin-top: 18px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* -------------------------------------------------------------
+       TARGET CONTRIBUTION BANNER (Thẻ mức đóng quỹ nổi bật)
+       ------------------------------------------------------------- */
+    .target-section {
+      margin-bottom: 40px;
+    }
+
+    .target-banner {
+      background: linear-gradient(135deg, #101A2C 0%, #173B68 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius-xl);
+      padding: 32px 36px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .target-banner::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 40%;
+      background: radial-gradient(ellipse at right center, rgba(71, 123, 255, 0.25), transparent 70%);
+      pointer-events: none;
+    }
+
+    .target-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .target-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      margin-bottom: 8px;
+    }
+
+    .target-amount-box {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .target-amount {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: #FFFFFF;
+    }
+
+    .target-per {
+      font-size: 1rem;
+      color: #CBD5E1;
+      font-weight: 500;
+    }
+
+    .target-meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .target-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #E2E8F0;
+      backdrop-filter: blur(4px);
+    }
+
+    .target-actions-box {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .target-note {
+      font-size: 0.73rem;
+      color: #94A3B8;
+      line-height: 1.45;
+    }
+
+    .btn-light {
+      background-color: #FFFFFF;
+      color: #101A2C;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      width: 100%;
+    }
+
+    .btn-light:hover {
+      background-color: #F8FAFC;
+      transform: translateY(-1px);
+    }
+
+    /* -------------------------------------------------------------
+       FINANCIAL OVERVIEW (Bức tranh tài chính)
+       ------------------------------------------------------------- */
+    .section-wrap {
+      padding: 40px 0;
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+    }
+
+    .finance-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .finance-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .finance-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+
+    .finance-card-hero {
+      grid-column: span 12;
+      background: linear-gradient(135deg, var(--bg-surface), var(--bg-surface-elevated));
+      border: 1.5px solid var(--border-focus);
+      box-shadow: var(--shadow-md);
+      padding: 28px 32px;
+    }
+
+    .finance-card-hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .finance-card-col4 {
+      grid-column: span 4;
+    }
+
+    .finance-card-col6 {
+      grid-column: span 6;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .card-type-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .tag-income {
+      background-color: var(--badge-income-bg);
+      color: var(--badge-income-text);
+    }
+
+    .tag-expense {
+      background-color: var(--badge-expense-bg);
+      color: var(--badge-expense-text);
+    }
+
+    .tag-balance {
+      background-color: var(--badge-balance-bg);
+      color: var(--badge-balance-text);
+    }
+
+    .card-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .card-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      font-family: var(--font-sans);
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    .card-value-large {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+    }
+
+    .card-subtext {
+      font-size: 0.74rem;
+      color: var(--text-tertiary);
+      margin-top: 6px;
+    }
+
+    .disclaimer-banner {
+      background-color: var(--bg-surface-subtle);
+      border-left: 3px solid var(--accent);
+      padding: 12px 18px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    /* -------------------------------------------------------------
+       FINANCIAL ALLOCATION VISUALIZATION (Phân tích đồ họa)
+       ------------------------------------------------------------- */
+    .vis-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-top: 24px;
+    }
+
+    .vis-header {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .vis-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .vis-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+    }
+
+    .allocation-bar {
+      height: 24px;
+      width: 100%;
+      background-color: var(--bg-surface-subtle);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .alloc-segment {
+      height: 100%;
+      position: relative;
+      transition: width 0.5s ease;
+    }
+
+    .alloc-expense {
+      background: linear-gradient(90deg, #F87171, #EF4444);
+    }
+
+    .alloc-reserve {
+      background: linear-gradient(90deg, #34D399, #10B981);
+    }
+
+    .vis-legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .legend-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .legend-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .legend-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .legend-val {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+    }
+
+    .legend-pct {
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+    }
+
+    /* -------------------------------------------------------------
+       PAYMENT PANEL (Khu vực chuyển khoản)
+       ------------------------------------------------------------- */
+    .payment-section {
+      padding: 0 0 64px;
+    }
+
+    .payment-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+    }
+
+    .payment-qr-col {
+      background: linear-gradient(180deg, var(--bg-surface-subtle) 0%, var(--bg-surface) 100%);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-right: 1px solid var(--border-subtle);
+    }
+
+    .qr-frame {
+      background-color: #FFFFFF !important;
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid #E2E8F0;
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .qr-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .qr-fallback {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      color: #101A2C;
+    }
+
+    .qr-actions {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      max-width: 240px;
+    }
+
+    .btn-qr-action {
+      flex: 1;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-qr-action:hover {
+      background-color: var(--bg-surface-elevated);
+      border-color: var(--border-focus);
+    }
+
+    .payment-info-col {
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .payment-fields-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 20px 0 24px;
+    }
+
+    .payment-field-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background-color: var(--bg-surface-inset);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      transition: border-color 0.15s ease;
+    }
+
+    .payment-field-row:hover {
+      border-color: var(--border-focus);
+    }
+
+    .field-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-tertiary);
+      margin-bottom: 2px;
+    }
+
+    .field-value {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      word-break: break-all;
+    }
+
+    .field-value-mono {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-copy-field {
+      padding: 8px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      margin-left: 12px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-copy-field:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background-color: var(--accent-subtle);
+    }
+
+    .payment-footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .warning-box {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background-color: var(--warning-bg);
+      border-left: 3px solid var(--warning);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 0.78rem;
+      color: #78350F;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    [data-theme="dark"] .warning-box {
+      background-color: rgba(217, 119, 6, 0.12);
+      color: #FDE68A;
+    }
+
+    /* -------------------------------------------------------------
+       STEP INSTRUCTIONS (Hướng dẫn đóng quỹ)
+       ------------------------------------------------------------- */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+      position: relative;
+    }
+
+    .step-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      opacity: 0.9;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* -------------------------------------------------------------
+       GOOGLE SHEETS EXTERNAL LINK CARD
+       ------------------------------------------------------------- */
+    .sheets-banner {
+      background: linear-gradient(135deg, var(--bg-surface), var(--bg-surface-elevated));
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-xl);
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-top: 36px;
+    }
+
+    .sheets-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .sheets-icon {
+      width: 52px;
+      height: 52px;
+      background-color: rgba(16, 185, 129, 0.12);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #059669;
+      flex-shrink: 0;
+    }
+
+    .sheets-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .sheets-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+    }
+
+    /* -------------------------------------------------------------
+       PLAN EXPLORER & CATEGORIES (Tra cứu kế hoạch)
+       ------------------------------------------------------------- */
+    .explorer-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background-color: var(--bg-surface-subtle);
+      padding: 4px;
+      border-radius: var(--radius-md);
+    }
+
+    .filter-tab {
+      padding: 7px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      transition: all 0.15s ease;
+    }
+
+    .filter-tab.active {
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-box {
+      position: relative;
+      width: 280px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 9px 14px 9px 36px;
+      font-size: 0.85rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      transition: border-color 0.15s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--border-focus);
+      outline: none;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .plan-table-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .plan-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .plan-table th {
+      background-color: var(--bg-surface-subtle);
+      padding: 14px 18px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-tertiary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .plan-table td {
+      padding: 16px 18px;
+      font-size: 0.88rem;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+    }
+
+    .plan-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .plan-table tr:hover td {
+      background-color: var(--bg-surface-inset);
+    }
+
+    .table-num {
+      text-align: right;
+      font-weight: 700;
+      font-family: var(--font-sans);
+    }
+
+    .table-empty {
+      padding: 48px 24px;
+      text-align: center;
+      color: var(--text-tertiary);
+    }
+
+    .table-empty-icon {
+      margin: 0 auto 12px;
+      color: var(--text-muted);
+    }
+
+    /* -------------------------------------------------------------
+       EXPORT & SHARE TOOLBAR
+       ------------------------------------------------------------- */
+    .export-share-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      margin-top: 24px;
+    }
+
+    .action-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* -------------------------------------------------------------
+       FAQ ACCORDION
+       ------------------------------------------------------------- */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .faq-item {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.15s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--border-strong);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 18px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .faq-arrow {
+      color: var(--text-tertiary);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-arrow {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+      padding: 0 20px;
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding-bottom: 18px;
+    }
+
+    /* -------------------------------------------------------------
+       FOOTER
+       ------------------------------------------------------------- */
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      background-color: var(--bg-surface);
+      padding: 48px 0 32px;
+      margin-top: 80px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+
+    .footer-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      max-width: 440px;
+      margin-top: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-link {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      transition: color 0.15s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.78rem;
+      color: var(--text-tertiary);
+    }
+
+    /* -------------------------------------------------------------
+       TOAST NOTIFICATION (Aria Live)
+       ------------------------------------------------------------- */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .toast {
+      background-color: #101A2C;
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: auto;
+    }
+
+    [data-theme="dark"] .toast {
+      background-color: #1E293B;
+      color: #F8FAFC;
+      border-color: #334155;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast-icon {
+      color: #10B981;
+      flex-shrink: 0;
+    }
+
+    /* -------------------------------------------------------------
+       PRINT STYLES (@media print)
+       ------------------------------------------------------------- */
+    @media print {
+      body {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+        font-size: 11pt;
+      }
+
+      .site-header,
+      .mobile-subnav,
+      .header-actions,
+      .hero-actions,
+      .btn,
+      .qr-actions,
+      .btn-copy-field,
+      .export-share-bar,
+      .explorer-toolbar,
+      .theme-toggle,
+      .site-footer .footer-links,
+      .toast-container {
+        display: none !important;
+      }
+
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+
+      .target-banner {
+        background: #F1F5F9 !important;
+        color: #000000 !important;
+        border: 1px solid #CBD5E1 !important;
+        box-shadow: none !important;
+      }
+
+      .target-amount, .target-eyebrow, .target-per {
+        color: #000000 !important;
+      }
+
+      .finance-card, .plan-table-card, .editorial-card, .vis-card, .step-card {
+        box-shadow: none !important;
+        border: 1px solid #CBD5E1 !important;
+        page-break-inside: avoid;
+      }
+
+      .plan-table th {
+        background-color: #F8FAFC !important;
+        color: #000000 !important;
+      }
+
+      .print-header-notice {
+        display: block !important;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #000;
+      }
+    }
+
+    .print-header-notice {
+      display: none;
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       ------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .payment-grid {
+        grid-template-columns: 1fr;
+      }
+      .payment-qr-col {
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 32px 20px;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .finance-card-col4 {
+        grid-column: span 6;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      .mobile-subnav {
+        display: flex;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .target-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .target-amount {
+        font-size: 2.4rem;
+      }
+      .finance-card-col4, .finance-card-col6 {
+        grid-column: span 12;
+      }
+      .sheets-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .search-box {
+        width: 100%;
+      }
+      .export-share-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .action-group {
+        justify-content: stretch;
+      }
+      .action-group .btn {
+        flex: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Live Announcer for Accessibility -->
+  <div id="toastRegion" class="toast-container" aria-live="polite" aria-atomic="true">
+    <div id="toastAlert" class="toast" role="status">
+      <svg class="toast-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+      <span id="toastMsg">Nội dung đã được sao chép</span>
+    </div>
+  </div>
+
+  <!-- Print Specific Header Banner -->
+  <div class="print-header-notice container">
+    <h2>BÁO CÁO KẾ HOẠCH THU CHI QUỸ LỚP — Q4/2026</h2>
+    <p>Mã lớp: 2505QLNG | Tình trạng: Số liệu mang tính kế hoạch cấu hình</p>
+  </div>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-wrap" aria-label="CLASS FUND - Trang chủ">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">CLASS FUND <span class="brand-tag">Q4 / 2026</span></span>
+          <span class="brand-subtitle">Lớp 2505QLNG · Minh bạch tài chính</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" aria-label="Điều hướng chính">
+        <a href="#tong-quan" class="nav-link">Tổng quan</a>
+        <a href="#ke-hoach" class="nav-link">Kế hoạch quỹ</a>
+        <a href="#chuyen-khoan" class="nav-link">Chuyển khoản</a>
+        <a href="#huong-dan" class="nav-link">Hướng dẫn</a>
+        <a href="#tra-cuu" class="nav-link">Tra cứu</a>
+        <a href="#faq" class="nav-link">Hỏi đáp</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="theme-toggle" type="button" aria-label="Chuyển chế độ sáng tối">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <a href="#huong-dan" class="btn-header-cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 14 14"></polyline>
+          </svg>
+          Hướng dẫn đóng quỹ
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Subnavigation Bar -->
+  <div class="mobile-subnav" aria-label="Điều hướng nhanh điện thoại">
+    <a href="#tong-quan" class="mobile-subnav-link">Tổng quan</a>
+    <a href="#muc-dong" class="mobile-subnav-link">Mức đóng</a>
+    <a href="#ke-hoach" class="mobile-subnav-link">Kế hoạch</a>
+    <a href="#chuyen-khoan" class="mobile-subnav-link">Chuyển khoản</a>
+    <a href="#huong-dan" class="mobile-subnav-link">Hướng dẫn</a>
+    <a href="#tra-cuu" class="mobile-subnav-link">Danh mục</a>
+    <a href="#faq" class="mobile-subnav-link">Hỏi đáp</a>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-eyebrow">
+              <span class="hero-eyebrow-dot"></span>
+              CLASS FUND · QUÝ IV / 2026
+            </div>
+            <h1 class="hero-title">
+              Minh bạch từng <span>khoản quỹ</span>.
+            </h1>
+            <p class="hero-desc">
+              Thông tin thu và chi được trình bày rõ ràng để các thành viên tiện theo dõi kế hoạch chung. Báo cáo độc lập, chuẩn hóa thông tin và tiện lợi khi đóng góp.
+            </p>
+            <div class="hero-actions">
+              <a href="#chuyen-khoan" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Xem hướng dẫn chuyển khoản
+              </a>
+              <a href="#ke-hoach" class="btn btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                Xem kế hoạch tài chính
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Graphic Composition -->
+          <div class="hero-graphic">
+            <div class="editorial-card">
+              <div class="editorial-badge">Kế hoạch ngân sách lớp</div>
+              <div class="editorial-label">Ước tính tổng quỹ sau thu</div>
+              <div class="editorial-amount" id="heroTotalFund">5.099.000 ₫</div>
+
+              <div class="editorial-metric-row">
+                <div class="editorial-metric-item">
+                  <span class="editorial-metric-val" id="heroExpectedExpense">4.000.000 ₫</span>
+                  <span class="editorial-metric-lbl">Dự kiến tổng chi</span>
+                </div>
+                <div class="editorial-metric-item">
+                  <span class="editorial-metric-val" id="heroExpectedReserve">1.099.000 ₫</span>
+                  <span class="editorial-metric-lbl">Dự còn sau chi</span>
+                </div>
+              </div>
+
+              <div class="editorial-disclaimer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Số liệu cấu hình phục vụ kế hoạch, chưa phải số dư ngân hàng thực tế.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARGET CONTRIBUTION BANNER (Thẻ mức đóng quỹ nổi bật) -->
+    <section class="target-section" id="muc-dong">
+      <div class="container">
+        <div class="target-banner">
+          <div class="target-content">
+            <div>
+              <div class="target-eyebrow">MỨC ĐÓNG DỰ KIẾN / NGƯỜI</div>
+              <div class="target-amount-box">
+                <span class="target-amount" id="targetAmountDisplay">40.000 ₫</span>
+                <span class="target-per">/ thành viên</span>
+              </div>
+              <div class="target-meta-pills">
+                <span class="target-pill">Kỳ quỹ: Quý IV / 2026</span>
+                <span class="target-pill">Mã lớp: 2505QLNG</span>
+                <span class="target-pill">Phép tính: 63 khoản tương đương</span>
+              </div>
+              <p class="target-note">
+                * Thông tin này là cấu hình kế hoạch của trang, không phải xác nhận nghĩa vụ pháp lý hay tình trạng thanh toán của từng cá nhân.
+              </p>
+            </div>
+
+            <div class="target-actions-box">
+              <button class="btn btn-light" id="btnCopyTransferContent" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Sao chép nội dung chuyển khoản
+              </button>
+              <div style="font-size: 0.8rem; color: #CBD5E1;">
+                Cú pháp: <strong id="transferContentPill" style="font-family: var(--font-mono); color: #FFFFFF;">QUYLOP 2505QLNG</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAYMENT PANEL SECTION (Khu vực chuyển khoản) -->
+    <section class="payment-section" id="chuyen-khoan">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Cổng thông tin đóng quỹ</div>
+          <h2 class="section-title">Chuyển khoản đóng quỹ</h2>
+          <p class="section-desc">
+            Quét mã QR qua ứng dụng ngân hàng hoặc sao chép chính xác số tài khoản và nội dung được tạo bên dưới.
+          </p>
+        </div>
+
+        <div class="payment-box">
+          <div class="payment-grid">
+            <!-- Left Column: QR Code -->
+            <div class="payment-qr-col">
+              <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">
+                Quét mã để chuyển khoản
+              </h3>
+
+              <div class="qr-frame">
+                <img id="qrImageElement" class="qr-img" src="" alt="Mã QR chuyển khoản VietQR MB Bank" loading="eager" decoding="async" referrerpolicy="no-referrer">
+                <div id="qrFallbackBox" class="qr-fallback">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" style="margin-bottom: 8px;">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                  <strong style="font-size: 0.85rem;">Không tải được mã QR</strong>
+                  <p style="font-size: 0.72rem; color: #475569; margin-top: 4px;">Vui lòng chuyển khoản thủ công bằng thông tin bên phải.</p>
+                </div>
+              </div>
+
+              <div class="qr-actions">
+                <button type="button" class="btn-qr-action" id="btnDownloadQR">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Tải mã QR
+                </button>
+                <button type="button" class="btn-qr-action" id="btnReloadQR">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <polyline points="1 20 1 14 7 14"></polyline>
+                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                  </svg>
+                  Tải lại mã
+                </button>
+              </div>
+              <span style="font-size: 0.72rem; color: var(--text-tertiary); margin-top: 12px;">Nguồn QR: VietQR Standard MB Bank</span>
+            </div>
+
+            <!-- Right Column: Account Details with Copy Buttons -->
+            <div class="payment-info-col">
+              <div>
+                <span class="card-type-tag tag-income">Tài khoản thu quỹ chính thức</span>
+                <div class="payment-fields-list">
+                  
+                  <div class="payment-field-row">
+                    <div>
+                      <div class="field-label">Ngân hàng thụ hưởng</div>
+                      <div class="field-value" id="dispBankName">MB Bank (Ngân hàng Quân Đội)</div>
+                    </div>
+                    <button type="button" class="btn-copy-field" data-copy-target="bank">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      Sao chép
+                    </button>
+                  </div>
+
+                  <div class="payment-field-row">
+                    <div>
+                      <div class="field-label">Số tài khoản</div>
+                      <div class="field-value field-value-mono" id="dispAccountNumber">9704229203196383882</div>
+                    </div>
+                    <button type="button" class="btn-copy-field" data-copy-target="account">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      Sao chép STK
+                    </button>
+                  </div>
+
+                  <div class="payment-field-row">
+                    <div>
+                      <div class="field-label">Chủ tài khoản đại diện</div>
+                      <div class="field-value" id="dispAccountHolder">Trần Bùi Nhựt Hy</div>
+                    </div>
+                    <button type="button" class="btn-copy-field" data-copy-target="holder">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      Sao chép tên
+                    </button>
+                  </div>
+
+                  <div class="payment-field-row">
+                    <div>
+                      <div class="field-label">Số tiền đóng</div>
+                      <div class="field-value" id="dispSuggestedAmount">40.000 ₫</div>
+                    </div>
+                    <button type="button" class="btn-copy-field" data-copy-target="amount">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      Sao chép số tiền
+                    </button>
+                  </div>
+
+                  <div class="payment-field-row" style="background-color: var(--accent-subtle); border-color: rgba(71, 123, 255, 0.3);">
+                    <div>
+                      <div class="field-label" style="color: var(--accent);">Nội dung chuyển khoản (bắt buộc)</div>
+                      <div class="field-value field-value-mono" id="dispTransferMessage">QUYLOP 2505QLNG</div>
+                    </div>
+                    <button type="button" class="btn-copy-field" data-copy-target="message" style="background-color: var(--accent); color: #fff;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      Sao chép nội dung
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+
+              <div>
+                <div class="payment-footer-actions">
+                  <button type="button" class="btn btn-secondary" id="btnCopyAllDetails" style="flex: 1;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    Sao chép toàn bộ thông tin chuyển khoản
+                  </button>
+                </div>
+
+                <div class="warning-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-top: 1px;">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                  <div>
+                    <strong>Cảnh báo an toàn:</strong> Vui lòng kiểm tra tên người nhận (Trần Bùi Nhựt Hy), số tài khoản và số tiền trên ứng dụng ngân hàng trước khi xác nhận giao dịch. Trang web không tự động truy cập tài khoản hay kết nối ngân hàng của bạn.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- FINANCIAL OVERVIEW (TỔNG QUAN) -->
+    <section class="section-wrap" id="ke-hoach">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Kế hoạch ngân sách</div>
+          <h2 class="section-title">TỔNG QUAN</h2>
+          <p class="section-desc">
+            Các khoản thu, chi và số dư dự kiến theo kế hoạch được cung cấp. Số liệu được đồng bộ và tính toán tự động từ bộ cấu hình chuẩn của lớp.
+          </p>
+        </div>
+
+        <div class="finance-grid" id="financeCardsContainer">
+          <!-- Main Hero Card: Total Funds -->
+          <div class="finance-card finance-card-hero">
+            <div class="finance-card-hero-inner">
+              <div>
+                <div class="card-type-tag tag-income" style="margin-bottom: 8px;">Tổng nguồn quỹ dự kiến</div>
+                <div class="card-label">Ước tính quỹ sau các khoản thu</div>
+                <div class="card-value-large" id="cardTotalFunds">5.099.000 ₫</div>
+                <div class="card-subtext">Đã bao gồm số dư năm cũ và toàn bộ các đợt thu dự kiến trong Q4.</div>
+              </div>
+              <div>
+                <a href="#chuyen-khoan" class="btn btn-primary">Đóng góp theo kế hoạch</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Sub-Cards -->
+          <div class="finance-card finance-card-col4">
+            <div>
+              <div class="card-top">
+                <span class="card-label">Dư quỹ năm 2025</span>
+                <span class="card-type-tag tag-income">Số dư cũ</span>
+              </div>
+              <div class="card-value" id="cardPrevBalance">1.319.000 ₫</div>
+            </div>
+            <div class="card-subtext">Khoản chuyển tiếp từ năm học trước</div>
+          </div>
+
+          <div class="finance-card-col4 finance-card">
+            <div>
+              <div class="card-top">
+                <span class="card-label">Thu quỹ Q4/2026</span>
+                <span class="card-type-tag tag-income">Thu định kỳ</span>
+              </div>
+              <div class="card-value" id="cardQ4Normal">1.260.000 ₫</div>
+            </div>
+            <div class="card-subtext">Kế hoạch thu định kỳ của quý</div>
+          </div>
+
+          <div class="finance-card-col4 finance-card">
+            <div>
+              <div class="card-top">
+                <span class="card-label">Thu bổ sung Q4/2026</span>
+                <span class="card-type-tag tag-income">Thu bổ sung</span>
+              </div>
+              <div class="card-value" id="cardQ4Extra">2.520.000 ₫</div>
+            </div>
+            <div class="card-subtext">Tương đương 63 khoản đóng 40.000 ₫ (về mặt toán học)</div>
+          </div>
+
+          <div class="finance-card-col6 finance-card">
+            <div>
+              <div class="card-top">
+                <span class="card-label">Dự chi văn nghệ</span>
+                <span class="card-type-tag tag-expense">Khoản chi</span>
+              </div>
+              <div class="card-value" id="cardCostArt">2.500.000 ₫</div>
+            </div>
+            <div class="card-subtext">Kế hoạch kinh phí hội diễn và trang phục</div>
+          </div>
+
+          <div class="finance-card-col6 finance-card">
+            <div>
+              <div class="card-top">
+                <span class="card-label">Dự chi phong trào</span>
+                <span class="card-type-tag tag-expense">Khoản chi</span>
+              </div>
+              <div class="card-value" id="cardCostMovement">1.500.000 ₫</div>
+            </div>
+            <div class="card-subtext">Kinh phí hoạt động ngoại khóa & thể thao</div>
+          </div>
+
+          <div class="finance-card-col6 finance-card" style="border-left: 3px solid #EF4444;">
+            <div>
+              <div class="card-top">
+                <span class="card-label">Ước tính tổng chi</span>
+                <span class="card-type-tag tag-expense">Tổng dự chi</span>
+              </div>
+              <div class="card-value" id="cardTotalExpense">4.000.000 ₫</div>
+            </div>
+            <div class="card-subtext">Tổng 2 khoản dự chi: 2.500.000 + 1.500.000 ₫</div>
+          </div>
+
+          <div class="finance-card-col6 finance-card" style="border-left: 3px solid #10B981;">
+            <div>
+              <div class="card-top">
+                <span class="card-label">Dự còn sau chi</span>
+                <span class="card-type-tag tag-balance">Số dư dự kiến</span>
+              </div>
+              <div class="card-value" id="cardRemainingBalance">1.099.000 ₫</div>
+            </div>
+            <div class="card-subtext">Khoản dự phòng chuyển tiếp sau khi hoàn tất các hoạt động</div>
+          </div>
+        </div>
+
+        <div class="disclaimer-banner">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <div>
+            <strong>Lưu ý quan trọng:</strong> Số liệu mang tính kế hoạch, chưa được xác minh với số dư ngân hàng hoặc sổ cái giao dịch thực tế. Phép tính 63 khoản là tỷ lệ tương đương quy đổi toán học trên chỉ tiêu thu bổ sung.
+          </div>
+        </div>
+
+        <!-- ALLOCATION VISUALIZATION (Phân tích thu - chi bằng đồ họa) -->
+        <div class="vis-card">
+          <div class="vis-header">
+            <div>
+              <h3 class="vis-title">Cơ cấu phân bổ ngân sách dự kiến</h3>
+              <p class="vis-subtitle">Tỷ lệ tương đối giữa các khoản dự chi và số dư dự kiến so với tổng quỹ (5.099.000 ₫)</p>
+            </div>
+            <div id="visFormulaLabel" style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--text-tertiary);">
+              5.099.000 - 4.000.000 = 1.099.000 ₫
+            </div>
+          </div>
+
+          <!-- Allocation segmented bar -->
+          <div class="allocation-bar" role="img" aria-label="Biểu đồ phân bổ tỷ lệ chi và số dư dự kiến">
+            <div class="alloc-segment alloc-expense" id="barExpense" style="width: 78.45%;" title="Ước tính tổng chi: 78.45%"></div>
+            <div class="alloc-segment alloc-reserve" id="barReserve" style="width: 21.55%;" title="Dự còn sau chi: 21.55%"></div>
+          </div>
+
+          <div class="vis-legend-grid">
+            <div class="legend-item">
+              <span class="legend-indicator" style="background-color: #477BFF;"></span>
+              <div class="legend-info">
+                <span class="legend-name">Tổng quỹ dự kiến</span>
+                <span class="legend-val" id="legendTotalFund">5.099.000 ₫</span>
+                <span class="legend-pct">100% quy mô tài chính</span>
+              </div>
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-indicator" style="background-color: #EF4444;"></span>
+              <div class="legend-info">
+                <span class="legend-name">Ước tính tổng chi</span>
+                <span class="legend-val" id="legendTotalExpense">4.000.000 ₫</span>
+                <span class="legend-pct" id="legendExpensePct">~78.45% tổng quỹ</span>
+              </div>
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-indicator" style="background-color: #10B981;"></span>
+              <div class="legend-info">
+                <span class="legend-name">Dự còn sau chi</span>
+                <span class="legend-val" id="legendRemaining">1.099.000 ₫</span>
+                <span class="legend-pct" id="legendRemainingPct">~21.55% dự phòng</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STEP INSTRUCTIONS (Hướng dẫn đóng quỹ) -->
+    <section class="section-wrap" id="huong-dan">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Quy trình đóng góp</div>
+          <h2 class="section-title">Hướng dẫn đóng quỹ 3 bước</h2>
+          <p class="section-desc">
+            Thực hiện chuyển khoản an toàn và chủ động đối chiếu với danh sách thông tin chung của tập thể.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">
+              <span>01</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="step-title">Mở ứng dụng ngân hàng</h3>
+            <p class="step-desc">
+              Mở ứng dụng ngân hàng bạn thường dùng, chọn tính năng quét QR để quét mã hoặc chọn chuyển tiền nhanh 24/7 theo số tài khoản MB Bank.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span>02</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <h3 class="step-title">Kiểm tra thông tin giao dịch</h3>
+            <p class="step-desc">
+              Xác thực tên người nhận hiển thị đúng là <strong>Trần Bùi Nhựt Hy</strong>, số tiền <strong>40.000 ₫</strong> và nội dung chuyển là <strong>QUYLOP 2505QLNG</strong>.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span>03</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </div>
+            <h3 class="step-title">Hoàn tất & đối chiếu lớp</h3>
+            <p class="step-desc">
+              Hoàn tất giao dịch trong ứng dụng ngân hàng của bạn, sau đó mở bảng thông tin lớp trên Google Sheets bên ngoài để đối chiếu theo quy trình của lớp.
+            </p>
+          </div>
+        </div>
+
+        <!-- GOOGLE SHEETS EXTERNAL LINK CARD -->
+        <div class="sheets-banner">
+          <div class="sheets-left">
+            <div class="sheets-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="8" y1="13" x2="16" y2="13"></line>
+                <line x1="8" y1="17" x2="16" y2="17"></line>
+                <line x1="10" y1="9" x2="8" y2="9"></line>
+              </svg>
+            </div>
+            <div>
+              <h3 class="sheets-title">Bảng thông tin lớp</h3>
+              <p class="sheets-desc">
+                Mở bảng tính bên ngoài để xem thông tin do ban cán sự lớp cung cấp và cập nhật định kỳ. Liên kết độc lập không đồng bộ trực tiếp với website.
+              </p>
+            </div>
+          </div>
+          <a href="https://docs.google.com/spreadsheets/d/1dWwZIqIW9c3UO8jznaXXg7M_gH0mDo9Bu27AlxoHA5Y/edit?gid=896567486#gid=896567486" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn btn-primary" 
+             style="flex-shrink: 0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Mở Google Sheets
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAN EXPLORER & CATEGORIES (Tra cứu kế hoạch và danh mục tài chính) -->
+    <section class="section-wrap" id="tra-cuu">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Danh mục minh bạch</div>
+          <h2 class="section-title">Tra cứu danh mục tài chính kế hoạch</h2>
+          <p class="section-desc">
+            Danh mục các khoản mục kế hoạch được cung cấp. Bạn có thể lọc theo loại khoản mục hoặc tìm kiếm theo tên gọi.
+          </p>
+        </div>
+
+        <div class="explorer-toolbar">
+          <div class="filter-tabs" role="tablist" aria-label="Bộ lọc danh mục">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true" type="button">Tất cả</button>
+            <button class="filter-tab" data-filter="income" role="tab" aria-selected="false" type="button">Khoản thu</button>
+            <button class="filter-tab" data-filter="expense" role="tab" aria-selected="false" type="button">Khoản chi</button>
+            <button class="filter-tab" data-filter="balance" role="tab" aria-selected="false" type="button">Số dư dự kiến</button>
+          </div>
+
+          <div class="search-box">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Tìm tên khoản mục..." aria-label="Tìm kiếm khoản mục">
+          </div>
+        </div>
+
+        <div class="plan-table-card">
+          <table class="plan-table">
+            <thead>
+              <tr>
+                <th style="width: 80px;">Mã</th>
+                <th>Tên khoản mục</th>
+                <th>Phân loại</th>
+                <th>Ghi chú / Căn cứ</th>
+                <th class="table-num">Số tiền dự kiến</th>
+              </tr>
+            </thead>
+            <tbody id="planTableBody">
+              <!-- Dynamically rendered rows from CONFIG -->
+            </tbody>
+          </table>
+          <div id="tableEmptyState" class="table-empty" style="display: none;">
+            <svg class="table-empty-icon" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <p><strong>Không tìm thấy khoản mục phù hợp</strong></p>
+            <span style="font-size: 0.8rem;">Hãy thử từ khóa khác hoặc chuyển sang tab "Tất cả".</span>
+          </div>
+        </div>
+
+        <!-- EXPORT AND SHARE SECTION (Xuất báo cáo & chia sẻ website) -->
+        <div class="export-share-bar">
+          <div>
+            <strong style="font-size: 0.95rem; color: var(--text-primary); display: block;">Xuất & Chia sẻ tài liệu</strong>
+            <span style="font-size: 0.8rem; color: var(--text-tertiary);">Tải bảng tính định dạng CSV hoặc chuẩn bị trang in / PDF cho buổi họp lớp.</span>
+          </div>
+
+          <div class="action-group">
+            <button type="button" class="btn btn-secondary" id="btnExportCSV">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Xuất CSV
+            </button>
+            <button type="button" class="btn btn-secondary" id="btnPrintPDF">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+              In / Lưu PDF
+            </button>
+            <button type="button" class="btn btn-secondary" id="btnSharePage">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              Chia sẻ trang
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION (Accordion Hỏi đáp) -->
+    <section class="section-wrap" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Giải đáp thắc mắc</div>
+          <h2 class="section-title">Câu hỏi thường gặp</h2>
+          <p class="section-desc">
+            Các câu hỏi về quy cách chuyển khoản, nguyên tắc bảo mật và tính chất số liệu trên trang.
+          </p>
+        </div>
+
+        <div class="faq-list" id="faqAccordion">
+          
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>1. Mức đóng quỹ được trình bày trên trang là bao nhiêu?</span>
+              <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Mức đóng cấu hình dự kiến theo kế hoạch của lớp là <strong>40.000 ₫ / người</strong> cho Quý IV / 2026. Đây là chỉ tiêu phân bổ chung được thống nhất theo kế hoạch tài chính lớp.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>2. Nội dung chuyển khoản cần ghi gì?</span>
+              <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Nội dung chuẩn hóa được tạo sẵn là <code>QUYLOP 2505QLNG</code>. Bạn có thể bấm nút "Sao chép nội dung" trên website để dán trực tiếp vào ứng dụng ngân hàng khi thực hiện giao dịch.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>3. Nếu không quét được mã QR thì làm sao?</span>
+              <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Nếu kết nối mạng chậm hoặc không tải được ảnh QR, bạn hoàn toàn có thể chuyển tiền thủ công bằng cách sao chép các thông tin: MB Bank, số tài khoản <strong>9704229203196383882</strong>, tên chủ tài khoản <strong>Trần Bùi Nhựt Hy</strong>.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>4. Số dư trên website có phải số dư ngân hàng thực tế không?</span>
+              <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <strong>Không</strong>. Mọi con số trên trang (kể cả số ước tính quỹ 5.099.000 ₫ hay dự còn sau chi 1.099.000 ₫) đều là số liệu cấu hình kế hoạch, chưa được đối soát hay kết nối với số dư sổ cái hoặc số dư tài khoản ngân hàng thực tế.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>5. Làm sao xem bảng thông tin của lớp?</span>
+              <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Bạn có thể bấm vào nút "Mở Google Sheets" trong mục "Bảng thông tin lớp" hoặc dưới chân trang để chuyển tới bảng tính trực tuyến do ban cán sự cập nhật theo quy trình của lớp.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>6. Website có tự xác nhận đã chuyển tiền không?</span>
+              <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <strong>Không</strong>. Trang web hoàn toàn là trang tĩnh (static website), không có cơ chế thu thập dữ liệu cá nhân, không tích hợp API kiểm tra biến động số dư của ngân hàng và không thể tự sinh trạng thái "Đã thanh toán" cho từng bạn.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="brand-wrap">
+            <div class="brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="2" y="5" width="20" height="14" rx="2"/>
+                <line x1="2" y1="10" x2="22" y2="10"/>
+              </svg>
+            </div>
+            <span class="brand-title">CLASS FUND <span class="brand-tag">Q4 / 2026</span></span>
+          </div>
+          <p class="footer-desc">
+            Trang thông tin tĩnh phục vụ tham khảo kế hoạch thu chi lớp 2505QLNG. Thiết kế minh bạch, chuẩn hóa trải nghiệm tài chính tập thể.
+          </p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="#tong-quan" class="footer-link">Tổng quan</a></li>
+          <li><a href="#ke-hoach" class="footer-link">Kế hoạch</a></li>
+          <li><a href="#chuyen-khoan" class="footer-link">Chuyển khoản</a></li>
+          <li><a href="https://docs.google.com/spreadsheets/d/1dWwZIqIW9c3UO8jznaXXg7M_gH0mDo9Bu27AlxoHA5Y/edit?gid=896567486#gid=896567486" target="_blank" rel="noopener noreferrer" class="footer-link">Google Sheets</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Lớp 2505QLNG — THU QUỸ BỔ SUNG Q4/2026</div>
+        <div>Trang thông tin tĩnh phục vụ tham khảo kế hoạch thu chi lớp</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- -------------------------------------------------------------
+       JAVASCRIPT LOGIC & CONFIGURED DATA
+       ------------------------------------------------------------- -->
+  <script>
+    (function () {
+      "use strict";
+
+      /* CENTRAL CONFIGURATION OBJECT */
+      const CONFIG = {
+        meta: {
+          siteName: "THU QUỸ BỔ SUNG Q4/2026",
+          term: "Quý IV / 2026",
+          classCode: "2505QLNG",
+          year: 2026
+        },
+        contribution: {
+          expectedPerPerson: 40000,
+          currency: "₫",
+          equivalentCount: 63
+        },
+        payment: {
+          bankName: "MB Bank",
+          accountNumber: "9704229203196383882",
+          accountHolder: "Trần Bùi Nhựt Hy",
+          transferMessage: "QUYLOP 2505QLNG",
+          // Ảnh QR do người dùng cung cấp (Imgur)
+          qrImageUrls: [
+            "https://i.imgur.com/tYlyOyJ.png"
+          ]
+        },
+        externalLinks: {
+          googleSheets: "https://docs.google.com/spreadsheets/d/1dWwZIqIW9c3UO8jznaXXg7M_gH0mDo9Bu27AlxoHA5Y/edit?gid=896567486#gid=896567486"
+        },
+        incomeItems: [
+          { id: "REV-01", name: "Dư quỹ năm 2025", type: "income", category: "Số dư cũ", amount: 1319000, note: "Khoản kết chuyển từ năm học trước" },
+          { id: "REV-02", name: "Thu quỹ Q4/2026", type: "income", category: "Thu định kỳ", amount: 1260000, note: "Kế hoạch thu định kỳ quý IV" },
+          { id: "REV-03", name: "Thu bổ sung Q4/2026", type: "income", category: "Thu bổ sung", amount: 2520000, note: "Chỉ tiêu thu bổ sung (tương đương 63 lượt đóng 40k)" }
+        ],
+        expenseItems: [
+          { id: "EXP-01", name: "Dự chi văn nghệ", type: "expense", category: "Hoạt động", amount: 2500000, note: "Dự trù kinh phí tham gia hội diễn văn nghệ và trang phục" },
+          { id: "EXP-02", name: "Dự chi phong trào", type: "expense", category: "Phong trào", amount: 1500000, note: "Kinh phí phong trào thể thao và ngoại khóa tập thể" }
+        ]
+      };
+
+      /* UTILITIES */
+      function formatVND(amount) {
+        return new Intl.NumberFormat("vi-VN").format(amount) + " ₫";
+      }
+
+      function calculateTotals() {
+        const totalIncome = CONFIG.incomeItems.reduce((acc, curr) => acc + curr.amount, 0);
+        const totalExpense = CONFIG.expenseItems.reduce((acc, curr) => acc + curr.amount, 0);
+        const remaining = totalIncome - totalExpense;
+        return { totalIncome, totalExpense, remaining };
+      }
+
+      /* TOAST NOTIFICATION */
+      let toastTimer = null;
+      function showToast(message) {
+        const toastEl = document.getElementById("toastAlert");
+        const msgEl = document.getElementById("toastMsg");
+        if (!toastEl || !msgEl) return;
+
+        msgEl.textContent = message;
+        toastEl.classList.add("show");
+
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastEl.classList.remove("show");
+        }, 3200);
+      }
+
+      /* CLIPBOARD COPY HELPER */
+      async function copyTextToClipboard(text, successMessage) {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            // Fallback for non-https or older browser environments
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+          }
+          showToast(successMessage || "Đã sao chép vào bộ nhớ tạm");
+        } catch (err) {
+          showToast("Không thể tự động sao chép. Vui lòng sao chép thủ công.");
+        }
+      }
+
+      /* THEME MANAGEMENT */
+      function initTheme() {
+        const savedTheme = (() => {
+          try {
+            return localStorage.getItem("cf_theme");
+          } catch (e) {
+            return null;
+          }
+        })();
+
+        if (savedTheme) {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+
+        const themeBtn = document.getElementById("themeToggleBtn");
+        if (themeBtn) {
+          themeBtn.addEventListener("click", () => {
+            const current = document.documentElement.getAttribute("data-theme") || "light";
+            const nextTheme = current === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", nextTheme);
+            try {
+              localStorage.setItem("cf_theme", nextTheme);
+            } catch (e) {}
+          });
+        }
+      }
+
+      /* DATA INITIALIZATION IN DOM */
+      function populateData() {
+        const { totalIncome, totalExpense, remaining } = calculateTotals();
+
+        // Hero
+        const heroTotalFund = document.getElementById("heroTotalFund");
+        const heroExpectedExpense = document.getElementById("heroExpectedExpense");
+        const heroExpectedReserve = document.getElementById("heroExpectedReserve");
+        if (heroTotalFund) heroTotalFund.textContent = formatVND(totalIncome);
+        if (heroExpectedExpense) heroExpectedExpense.textContent = formatVND(totalExpense);
+        if (heroExpectedReserve) heroExpectedReserve.textContent = formatVND(remaining);
+
+        // Banner
+        const targetAmountDisplay = document.getElementById("targetAmountDisplay");
+        if (targetAmountDisplay) targetAmountDisplay.textContent = formatVND(CONFIG.contribution.expectedPerPerson);
+
+        // Main Overview Card
+        const cardTotalFunds = document.getElementById("cardTotalFunds");
+        const cardTotalExpense = document.getElementById("cardTotalExpense");
+        const cardRemainingBalance = document.getElementById("cardRemainingBalance");
+        if (cardTotalFunds) cardTotalFunds.textContent = formatVND(totalIncome);
+        if (cardTotalExpense) cardTotalExpense.textContent = formatVND(totalExpense);
+        if (cardRemainingBalance) cardRemainingBalance.textContent = formatVND(remaining);
+
+        // Sub cards
+        const cardPrevBalance = document.getElementById("cardPrevBalance");
+        const cardQ4Normal = document.getElementById("cardQ4Normal");
+        const cardQ4Extra = document.getElementById("cardQ4Extra");
+        const cardCostArt = document.getElementById("cardCostArt");
+        const cardCostMovement = document.getElementById("cardCostMovement");
+
+        if (cardPrevBalance) cardPrevBalance.textContent = formatVND(CONFIG.incomeItems[0].amount);
+        if (cardQ4Normal) cardQ4Normal.textContent = formatVND(CONFIG.incomeItems[1].amount);
+        if (cardQ4Extra) cardQ4Extra.textContent = formatVND(CONFIG.incomeItems[2].amount);
+        if (cardCostArt) cardCostArt.textContent = formatVND(CONFIG.expenseItems[0].amount);
+        if (cardCostMovement) cardCostMovement.textContent = formatVND(CONFIG.expenseItems[1].amount);
+
+        // Visualization Legend & Bar
+        const legendTotalFund = document.getElementById("legendTotalFund");
+        const legendTotalExpense = document.getElementById("legendTotalExpense");
+        const legendRemaining = document.getElementById("legendRemaining");
+        const legendExpensePct = document.getElementById("legendExpensePct");
+        const legendRemainingPct = document.getElementById("legendRemainingPct");
+        const barExpense = document.getElementById("barExpense");
+        const barReserve = document.getElementById("barReserve");
+
+        if (totalIncome > 0) {
+          const expensePct = ((totalExpense / totalIncome) * 100).toFixed(2);
+          const reservePct = ((remaining / totalIncome) * 100).toFixed(2);
+
+          if (legendTotalFund) legendTotalFund.textContent = formatVND(totalIncome);
+          if (legendTotalExpense) legendTotalExpense.textContent = formatVND(totalExpense);
+          if (legendRemaining) legendRemaining.textContent = formatVND(remaining);
+
+          if (legendExpensePct) legendExpensePct.textContent = `~${expensePct}% tổng quỹ`;
+          if (legendRemainingPct) legendRemainingPct.textContent = `~${reservePct}% dự phòng`;
+
+          if (barExpense) {
+            barExpense.style.width = `${expensePct}%`;
+            barExpense.title = `Ước tính tổng chi: ${expensePct}%`;
+          }
+          if (barReserve) {
+            barReserve.style.width = `${reservePct}%`;
+            barReserve.title = `Dự còn sau chi: ${reservePct}%`;
+          }
+        }
+
+        // Payment info section
+        const dispBankName = document.getElementById("dispBankName");
+        const dispAccountNumber = document.getElementById("dispAccountNumber");
+        const dispAccountHolder = document.getElementById("dispAccountHolder");
+        const dispSuggestedAmount = document.getElementById("dispSuggestedAmount");
+        const dispTransferMessage = document.getElementById("dispTransferMessage");
+
+        if (dispBankName) dispBankName.textContent = CONFIG.payment.bankName;
+        if (dispAccountNumber) dispAccountNumber.textContent = CONFIG.payment.accountNumber;
+        if (dispAccountHolder) dispAccountHolder.textContent = CONFIG.payment.accountHolder;
+        if (dispSuggestedAmount) dispSuggestedAmount.textContent = formatVND(CONFIG.contribution.expectedPerPerson);
+        if (dispTransferMessage) dispTransferMessage.textContent = CONFIG.payment.transferMessage;
+
+        // QR Code Handler: thử lần lượt nhiều URL tương thích với VietQR Quick Link.
+        const qrImg = document.getElementById("qrImageElement");
+        const qrFallback = document.getElementById("qrFallbackBox");
+        if (qrImg) loadVietQRImage(false);
+      }
+
+      let qrImageAttempt = 0;
+      function loadVietQRImage(forceReload) {
+        const qrImg = document.getElementById("qrImageElement");
+        const qrFallback = document.getElementById("qrFallbackBox");
+        const urls = CONFIG.payment.qrImageUrls || [];
+        if (!qrImg || !urls.length) {
+          if (qrImg) qrImg.style.display = "none";
+          if (qrFallback) qrFallback.style.display = "flex";
+          return;
+        }
+        if (forceReload) qrImageAttempt = 0;
+        qrImg.onload = function () {
+          qrImg.style.display = "block";
+          if (qrFallback) qrFallback.style.display = "none";
+        };
+        qrImg.onerror = function () {
+          qrImageAttempt += 1;
+          if (qrImageAttempt < urls.length) {
+            qrImg.src = urls[qrImageAttempt] + (urls[qrImageAttempt].includes("?") ? "&" : "?") + "cb=" + Date.now();
+          } else {
+            qrImg.style.display = "none";
+            if (qrFallback) qrFallback.style.display = "flex";
+          }
+        };
+        qrImg.style.display = "block";
+        if (qrFallback) qrFallback.style.display = "none";
+        qrImg.src = urls[qrImageAttempt] + (urls[qrImageAttempt].includes("?") ? "&" : "?") + "cb=" + Date.now();
+      }
+
+      /* QR BUTTONS (Reload & Download) */
+      function initQRButtons() {
+        const btnReload = document.getElementById("btnReloadQR");
+        const btnDownload = document.getElementById("btnDownloadQR");
+        const qrImg = document.getElementById("qrImageElement");
+
+        if (btnReload && qrImg) {
+          btnReload.addEventListener("click", () => {
+            loadVietQRImage(true);
+            showToast("Đang thử tải lại mã QR...");
+          });
+        }
+
+        if (btnDownload && qrImg) {
+          btnDownload.addEventListener("click", () => {
+            const currentQRUrl = CONFIG.payment.qrImageUrls[Math.min(qrImageAttempt, CONFIG.payment.qrImageUrls.length - 1)];
+            fetch(currentQRUrl)
+              .then(resp => {
+                if (!resp.ok) throw new Error("Network error");
+                return resp.blob();
+              })
+              .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "QR-Thu-Quy-Q4-2026-MBBank.png";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+                showToast("Đã tải mã QR về thiết bị");
+              })
+              .catch(() => {
+                // Open image directly in new window if blob download is restricted by CORS
+                window.open(CONFIG.payment.qrImageUrls[Math.min(qrImageAttempt, CONFIG.payment.qrImageUrls.length - 1)], "_blank");
+                showToast("Đang mở ảnh QR trong tab mới...");
+              });
+          });
+        }
+      }
+
+      /* COPY BUTTONS HANDLER */
+      function initCopyHandlers() {
+        const copyMap = {
+          bank: () => ({ text: CONFIG.payment.bankName, msg: "Đã sao chép tên ngân hàng: MB Bank" }),
+          account: () => ({ text: CONFIG.payment.accountNumber, msg: "Đã sao chép số tài khoản: " + CONFIG.payment.accountNumber }),
+          holder: () => ({ text: CONFIG.payment.accountHolder, msg: "Đã sao chép tên chủ tài khoản: " + CONFIG.payment.accountHolder }),
+          amount: () => ({ text: CONFIG.contribution.expectedPerPerson.toString(), msg: "Đã sao chép số tiền: 40.000 ₫" }),
+          message: () => ({ text: CONFIG.payment.transferMessage, msg: "Đã sao chép nội dung: " + CONFIG.payment.transferMessage })
+        };
+
+        document.querySelectorAll("[data-copy-target]").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const target = btn.getAttribute("data-copy-target");
+            if (copyMap[target]) {
+              const { text, msg } = copyMap[target]();
+              copyTextToClipboard(text, msg);
+            }
+          });
+        });
+
+        // Copy transfer content banner button
+        const btnBannerCopy = document.getElementById("btnCopyTransferContent");
+        if (btnBannerCopy) {
+          btnBannerCopy.addEventListener("click", () => {
+            copyTextToClipboard(CONFIG.payment.transferMessage, "Đã sao chép nội dung chuyển khoản: " + CONFIG.payment.transferMessage);
+          });
+        }
+
+        // Copy all payment info
+        const btnCopyAll = document.getElementById("btnCopyAllDetails");
+        if (btnCopyAll) {
+          btnCopyAll.addEventListener("click", () => {
+            const allText = [
+              "THÔNG TIN CHUYỂN KHOẢN ĐÓNG QUỸ Q4/2026",
+              "• Ngân hàng: " + CONFIG.payment.bankName,
+              "• Số tài khoản: " + CONFIG.payment.accountNumber,
+              "• Chủ tài khoản: " + CONFIG.payment.accountHolder,
+              "• Số tiền: " + formatVND(CONFIG.contribution.expectedPerPerson),
+              "• Cú pháp nội dung: " + CONFIG.payment.transferMessage
+            ].join("\n");
+
+            copyTextToClipboard(allText, "Đã sao chép toàn bộ thông tin chuyển khoản");
+          });
+        }
+      }
+
+      /* PLAN ITEMS TABLE & FILTERING */
+      function renderTable(filterType, searchQuery) {
+        const tbody = document.getElementById("planTableBody");
+        const emptyState = document.getElementById("tableEmptyState");
+        if (!tbody) return;
+
+        const { remaining } = calculateTotals();
+
+        // Synthesize full array for browsing
+        const allItems = [
+          ...CONFIG.incomeItems,
+          ...CONFIG.expenseItems,
+          {
+            id: "BAL-01",
+            name: "Dự còn sau chi",
+            type: "balance",
+            category: "Số dư dự kiến",
+            amount: remaining,
+            note: "Số dư dự phòng sau khi trừ tổng chi khỏi tổng quỹ dự kiến"
+          }
+        ];
+
+        const query = (searchQuery || "").trim().toLowerCase();
+
+        const filtered = allItems.filter(item => {
+          const matchType = filterType === "all" || item.type === filterType;
+          const matchSearch = !query || item.name.toLowerCase().includes(query) || (item.note && item.note.toLowerCase().includes(query)) || item.category.toLowerCase().includes(query);
+          return matchType && matchSearch;
+        });
+
+        tbody.innerHTML = "";
+
+        if (filtered.length === 0) {
+          if (emptyState) emptyState.style.display = "block";
+          return;
+        }
+
+        if (emptyState) emptyState.style.display = "none";
+
+        filtered.forEach(item => {
+          const tr = document.createElement("tr");
+
+          let badgeClass = "tag-income";
+          let badgeLabel = "Khoản thu";
+          if (item.type === "expense") {
+            badgeClass = "tag-expense";
+            badgeLabel = "Khoản chi";
+          } else if (item.type === "balance") {
+            badgeClass = "tag-balance";
+            badgeLabel = "Số dư dự kiến";
+          }
+
+          // Build row safely using text nodes to prevent script injection
+          const tdId = document.createElement("td");
+          tdId.style.fontFamily = "var(--font-mono)";
+          tdId.style.fontSize = "0.8rem";
+          tdId.textContent = item.id;
+
+          const tdName = document.createElement("td");
+          const nameSpan = document.createElement("strong");
+          nameSpan.textContent = item.name;
+          tdName.appendChild(nameSpan);
+
+          const tdCat = document.createElement("td");
+          const catBadge = document.createElement("span");
+          catBadge.className = `card-type-tag ${badgeClass}`;
+          catBadge.textContent = item.category;
+          tdCat.appendChild(catBadge);
+
+          const tdNote = document.createElement("td");
+          tdNote.style.color = "var(--text-secondary)";
+          tdNote.style.fontSize = "0.82rem";
+          tdNote.textContent = item.note || "—";
+
+          const tdAmount = document.createElement("td");
+          tdAmount.className = "table-num";
+          tdAmount.textContent = formatVND(item.amount);
+
+          tr.appendChild(tdId);
+          tr.appendChild(tdName);
+          tr.appendChild(tdCat);
+          tr.appendChild(tdNote);
+          tr.appendChild(tdAmount);
+
+          tbody.appendChild(tr);
+        });
+      }
+
+      function initTableExplorer() {
+        let currentFilter = "all";
+        let currentSearch = "";
+
+        const tabs = document.querySelectorAll(".filter-tab");
+        const searchInput = document.getElementById("searchInput");
+
+        tabs.forEach(tab => {
+          tab.addEventListener("click", () => {
+            tabs.forEach(t => {
+              t.classList.remove("active");
+              t.setAttribute("aria-selected", "false");
+            });
+            tab.classList.add("active");
+            tab.setAttribute("aria-selected", "true");
+            currentFilter = tab.getAttribute("data-filter") || "all";
+            renderTable(currentFilter, currentSearch);
+          });
+        });
+
+        if (searchInput) {
+          searchInput.addEventListener("input", (e) => {
+            currentSearch = e.target.value;
+            renderTable(currentFilter, currentSearch);
+          });
+        }
+
+        renderTable("all", "");
+      }
+
+      /* CSV EXPORT WITH FORMULA INJECTION DEFENSE & UTF-8 BOM */
+      function exportToCSV() {
+        const { totalIncome, totalExpense, remaining } = calculateTotals();
+
+        const headers = ["Mã danh mục", "Tên khoản mục", "Phân loại", "Ghi chú kế hoạch", "Số tiền (VNĐ)"];
+        
+        const rows = [
+          ...CONFIG.incomeItems.map(i => [i.id, i.name, "Khoản thu - " + i.category, i.note, i.amount]),
+          ...CONFIG.expenseItems.map(e => [e.id, e.name, "Khoản chi - " + e.category, e.note, e.amount]),
+          ["BAL-01", "Dự còn sau chi", "Số dư dự kiến", "Ước tính quỹ - Ước tính tổng chi", remaining],
+          ["SUMMARY", "Tổng nguồn quỹ dự kiến", "Tổng thu", "Cộng gộp 3 nguồn thu", totalIncome],
+          ["SUMMARY", "Ước tính tổng chi", "Tổng chi", "Cộng gộp các hoạt động", totalExpense]
+        ];
+
+        // Sanitize function to prevent CSV Formula Injection (=, +, -, @)
+        function sanitizeCell(val) {
+          if (val === null || val === undefined) return '""';
+          let str = String(val);
+          // If first char is dangerous formula prefix, prepend single quote
+          if (/^[=+\-@\t\r\n]/.test(str)) {
+            str = "'" + str;
+          }
+          // Escape quotes
+          str = str.replace(/"/g, '""');
+          return `"${str}"`;
+        }
+
+        let csvContent = "\uFEFF"; // UTF-8 BOM for Excel Vietnamese compatibility
+        csvContent += headers.map(sanitizeCell).join(",") + "\r\n";
+
+        rows.forEach(row => {
+          csvContent += row.map(sanitizeCell).join(",") + "\r\n";
+        });
+
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", "ke-hoach-thu-quy-Q4-2026.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+        showToast("Đã xuất file ke-hoach-thu-quy-Q4-2026.csv");
+      }
+
+      /* SHARE PAGE WITH WEB SHARE API & FALLBACK */
+      function handleSharePage() {
+        const shareData = {
+          title: "Thu Quỹ Bổ Sung Q4/2026 — Lớp 2505QLNG",
+          text: "Thông tin kế hoạch thu quỹ và hướng dẫn đóng quỹ lớp 2505QLNG Quý IV / 2026.",
+          url: window.location.href
+        };
+
+        if (window.location.protocol === "file:") {
+          showToast("Đang mở bằng file cục bộ. Bạn vui lòng tải file lên hosting để chia sẻ qua link.");
+          return;
+        }
+
+        if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+          navigator.share(shareData).catch(() => {
+            // User dismissed or failed
+          });
+        } else {
+          copyTextToClipboard(window.location.href, "Đã sao chép liên kết trang vào bộ nhớ tạm");
+        }
+      }
+
+      /* FAQ ACCORDION INTERACTIVITY */
+      function initFAQ() {
+        const questions = document.querySelectorAll(".faq-question");
+        questions.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const item = btn.parentElement;
+            const isOpen = item.classList.contains("active");
+
+            // Close all
+            document.querySelectorAll(".faq-item").forEach(i => {
+              i.classList.remove("active");
+              const q = i.querySelector(".faq-question");
+              if (q) q.setAttribute("aria-expanded", "false");
+            });
+
+            if (!isOpen) {
+              item.classList.add("active");
+              btn.setAttribute("aria-expanded", "true");
+            }
+          });
+        });
+      }
+
+      /* STICKY HEADER SCROLL EFFECT */
+      function initHeaderScroll() {
+        const header = document.getElementById("siteHeader");
+        if (!header) return;
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 20) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        }, { passive: true });
+      }
+
+      /* EXPORT & ACTION LISTENERS */
+      function initExportButtons() {
+        const btnCSV = document.getElementById("btnExportCSV");
+        const btnPrint = document.getElementById("btnPrintPDF");
+        const btnShare = document.getElementById("btnSharePage");
+
+        if (btnCSV) btnCSV.addEventListener("click", exportToCSV);
+        if (btnPrint) {
+          btnPrint.addEventListener("click", () => {
+            showToast("Đang mở cửa sổ in / xuất PDF...");
+            setTimeout(() => {
+              window.print();
+            }, 300);
+          });
+        }
+        if (btnShare) btnShare.addEventListener("click", handleSharePage);
+      }
+
+      /* DOM READY BOOTSTRAP */
+      document.addEventListener("DOMContentLoaded", () => {
+        initTheme();
+        populateData();
+        initQRButtons();
+        initCopyHandlers();
+        initTableExplorer();
+        initFAQ();
+        initHeaderScroll();
+        initExportButtons();
+      });
+
+    })();
+  </script>
+</body>
+</html>

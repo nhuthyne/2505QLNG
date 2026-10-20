@@ -1613,6 +1613,36 @@
     .payment-qr-col, .payment-info-col { overflow-wrap: anywhere; }
     img, svg { max-width: 100%; }
 
+    /* Payment confirmation CTA: visible directly under the QR controls. */
+    .payment-confirm-cta {
+      display: flex;
+      width: 100%;
+      max-width: 320px;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: normal;
+    }
+    .payment-confirm-hint {
+      display: block;
+      margin-top: 7px;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    /* Keep the category filters readable and prevent table columns being clipped on phones. */
+    .explorer-toolbar, .filter-tabs { min-width: 0; max-width: 100%; }
+    .filter-tabs { flex-wrap: wrap; }
+    .filter-tab { min-width: 0; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+    .search-box { min-width: 0; max-width: 100%; }
+    .plan-table-card { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .plan-table { min-width: 760px; }
+
     @media (max-width: 768px) {
       .container { width: calc(100% - 28px); }
       .payment-box { border-radius: 16px; }
@@ -1645,6 +1675,11 @@
       .search-box {
         width: 100%;
       }
+      .explorer-toolbar { align-items: stretch; gap: 12px; }
+      .filter-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+      .filter-tab { width: 100%; padding: 9px 8px; text-align: center; line-height: 1.25; }
+      .plan-table { min-width: 760px; }
+      .payment-confirm-cta { max-width: 100%; }
       .export-share-bar {
         flex-direction: column;
         align-items: stretch;
@@ -1801,6 +1836,10 @@
                   Tải lại mã
                 </button>
               </div>
+              <a class="btn btn-primary payment-confirm-cta" id="btnPaymentConfirmed" href="#" role="button" aria-label="Tôi đã chuyển khoản">
+                ✓ Tôi đã chuyển khoản
+              </a>
+              <span class="payment-confirm-hint">Chuyển khoản xong? Nhấn nút để xác nhận.</span>
               <span style="font-size: 0.72rem; color: var(--text-tertiary); margin-top: 12px;">Nguồn QR: VietQR Standard MB Bank</span>
             </div>
 
@@ -2594,6 +2633,17 @@
       }
 
       /* THEME MANAGEMENT */
+      // Replace this placeholder with the actual confirmation form URL when provided.
+      const paymentConfirmButton = document.getElementById("btnPaymentConfirmed");
+      if (paymentConfirmButton) {
+        paymentConfirmButton.addEventListener("click", function (event) {
+          if (paymentConfirmButton.getAttribute("href") === "#" || !paymentConfirmButton.getAttribute("href")) {
+            event.preventDefault();
+            alert("Chưa cài đường link xác nhận chuyển khoản. Vui lòng bổ sung link Google Form hoặc biểu mẫu xác nhận.");
+          }
+        });
+      }
+
       function initTheme() {
         // Luôn mở trang ở chế độ sáng, không phụ thuộc giao diện hệ điều hành hay lựa chọn cũ.
         document.documentElement.setAttribute("data-theme", "light");

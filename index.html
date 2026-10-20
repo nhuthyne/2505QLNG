@@ -1669,6 +1669,63 @@
       }
     }
 
+    /* Mobile-only fixes: keep the original visual design and existing actions. */
+    @media (max-width: 600px) {
+      .site-header { position: sticky; }
+      .header-inner {
+        height: auto;
+        min-height: 76px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .brand-wrap { min-width: 0; flex: 1 1 155px; gap: 8px; }
+      .brand-text { min-width: 0; }
+      .brand-title { font-size: 0.94rem; }
+      .brand-wrap .brand-subtitle { font-size: 0.78rem; }
+      .header-actions { flex: 0 0 auto; gap: 8px; }
+      .btn-header-cta {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+        justify-content: center;
+        padding: 8px 10px;
+        font-size: 0.78rem;
+      }
+      .payment-field-row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 14px;
+        min-width: 0;
+      }
+      .payment-field-row > div { width: 100%; min-width: 0; }
+      .field-label {
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+        line-height: 1.45;
+      }
+      .field-value {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        line-height: 1.5;
+      }
+      .field-value-mono { font-size: 0.98rem; letter-spacing: 0; }
+      .btn-copy-field {
+        align-self: flex-start;
+        max-width: 100%;
+        margin-left: 0;
+        white-space: normal;
+        line-height: 1.35;
+      }
+      .payment-confirm-cta { white-space: normal; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;

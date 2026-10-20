@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thu Quỹ Bổ Sung Q4/2026 — CLASS FUND</title>
-  <meta name="description" content="Trang thông tin kế hoạch thu quỹ lớp Q4/2026 lớp 2505QLNG. 2505QLNG, chi tiết kế hoạch tài chính và thông tin chuyển khoản.">
+  <meta name="description" content="Trang thông tin kế hoạch thu quỹ lớp Q4/2026 lớp 2505QLNG. Thông tin thu quỹ lớp 2505QLNG, kế hoạch tài chính và thông tin chuyển khoản.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -1600,7 +1600,25 @@
       }
     }
 
+    /* Mobile layout hardening: prevent horizontal overflow and keep QR readable. */
+    html, body { max-width: 100%; overflow-x: clip; }
+    *, *::before, *::after { box-sizing: border-box; }
+    .container, .payment-box, .payment-grid, .payment-qr-col, .payment-info-col,
+    .hero-grid, .hero-graphic, .target-content, .section-header { min-width: 0; }
+    .qr-img { max-width: 100%; object-fit: contain; }
+    .qr-frame { flex: 0 1 auto; width: min(100%, 320px); }
+    .payment-section { padding-top: 18px; }
+    .payment-grid { min-width: 0; }
+    .payment-grid > * { min-width: 0; }
+    .payment-qr-col, .payment-info-col { overflow-wrap: anywhere; }
+    img, svg { max-width: 100%; }
+
     @media (max-width: 768px) {
+      .container { width: calc(100% - 28px); }
+      .payment-box { border-radius: 16px; }
+      .payment-qr-col { padding: 24px 16px; }
+      .qr-frame { max-width: min(82vw, 320px); padding: 10px; }
+      .payment-grid { grid-template-columns: minmax(0, 1fr); }
       .nav-menu {
         display: none;
       }
@@ -1679,7 +1697,7 @@
         </div>
         <div class="brand-text">
           <span class="brand-title">CLASS FUND <span class="brand-tag">Q4 / 2026</span></span>
-          <span class="brand-subtitle">Lớp 2505QLNG · Minh bạch tài chính</span>
+          <span class="brand-subtitle">Lớp 2505QLNG</span>
         </div>
       </a>
 
@@ -1733,112 +1751,6 @@
   </div>
 
   <main>
-    <!-- HERO SECTION -->
-    <section class="hero-section" id="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div>
-            <div class="hero-eyebrow">
-              <span class="hero-eyebrow-dot"></span>
-              CLASS FUND · QUÝ IV / 2026
-            </div>
-            <h1 class="hero-title">
-              Minh bạch từng <span>khoản quỹ</span>.
-            </h1>
-            <p class="hero-desc">
-              Thông tin thu và chi được trình bày rõ ràng để các thành viên tiện theo dõi kế hoạch chung. Báo cáo độc lập, chuẩn hóa thông tin và tiện lợi khi đóng góp.
-            </p>
-            <div class="hero-actions">
-              <a href="#chuyen-khoan" class="btn btn-primary">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="14" width="7" height="7"></rect>
-                  <rect x="3" y="14" width="7" height="7"></rect>
-                </svg>
-                Xem hướng dẫn chuyển khoản
-              </a>
-              <a href="#ke-hoach" class="btn btn-secondary">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="20" x2="18" y2="10"></line>
-                  <line x1="12" y1="20" x2="12" y2="4"></line>
-                  <line x1="6" y1="20" x2="6" y2="14"></line>
-                </svg>
-                Xem kế hoạch tài chính
-              </a>
-            </div>
-          </div>
-
-          <!-- Hero Graphic Composition -->
-          <div class="hero-graphic">
-            <div class="editorial-card">
-              <div class="editorial-badge">Kế hoạch ngân sách lớp</div>
-              <div class="editorial-label">Ước tính tổng quỹ sau thu</div>
-              <div class="editorial-amount" id="heroTotalFund">5.099.000 ₫</div>
-
-              <div class="editorial-metric-row">
-                <div class="editorial-metric-item">
-                  <span class="editorial-metric-val" id="heroExpectedExpense">4.000.000 ₫</span>
-                  <span class="editorial-metric-lbl">Dự kiến tổng chi</span>
-                </div>
-                <div class="editorial-metric-item">
-                  <span class="editorial-metric-val" id="heroExpectedReserve">1.099.000 ₫</span>
-                  <span class="editorial-metric-lbl">Dự còn sau chi</span>
-                </div>
-              </div>
-
-              <div class="editorial-disclaimer">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="16" x2="12" y2="12"></line>
-                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
-                Số liệu cấu hình phục vụ kế hoạch, chưa phải số dư ngân hàng thực tế.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TARGET CONTRIBUTION BANNER (Thẻ mức đóng quỹ nổi bật) -->
-    <section class="target-section" id="muc-dong">
-      <div class="container">
-        <div class="target-banner">
-          <div class="target-content">
-            <div>
-              <div class="target-eyebrow">MỨC ĐÓNG DỰ KIẾN / NGƯỜI</div>
-              <div class="target-amount-box">
-                <span class="target-amount" id="targetAmountDisplay">40.000 ₫</span>
-                <span class="target-per">/ thành viên</span>
-              </div>
-              <div class="target-meta-pills">
-                <span class="target-pill">Kỳ quỹ: Quý IV / 2026</span>
-                <span class="target-pill">Mã lớp: 2505QLNG</span>
-                <span class="target-pill">Phép tính: 63 khoản tương đương</span>
-              </div>
-              <p class="target-note">
-                * Thông tin này là cấu hình kế hoạch của trang, không phải xác nhận nghĩa vụ pháp lý hay tình trạng thanh toán của từng cá nhân.
-              </p>
-            </div>
-
-            <div class="target-actions-box">
-              <button class="btn btn-light" id="btnCopyTransferContent" type="button">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                Sao chép nội dung chuyển khoản
-              </button>
-              <div style="font-size: 0.8rem; color: #CBD5E1;">
-                Cú pháp: <strong id="transferContentPill" style="font-family: var(--font-mono); color: #FFFFFF;">QUYLOP 2505QLNG BSQ42026</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- PAYMENT PANEL SECTION (Khu vực chuyển khoản) -->
     <section class="payment-section" id="chuyen-khoan">
       <div class="container">
@@ -1942,7 +1854,7 @@
 
                   <div class="payment-field-row">
                     <div>
-                      <div class="field-label">Số tiền đóng</div>
+                      <div class="field-label">Số tiền gợi ý đóng</div>
                       <div class="field-value" id="dispSuggestedAmount">40.000 ₫</div>
                     </div>
                     <button type="button" class="btn-copy-field" data-copy-target="amount">
@@ -2001,12 +1913,119 @@
     </section>
 
     
-    <!-- FINANCIAL OVERVIEW (TỔNG QUAN) -->
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-eyebrow">
+              <span class="hero-eyebrow-dot"></span>
+              CLASS FUND · QUÝ IV / 2026
+            </div>
+            <h1 class="hero-title">
+              2505QLNG
+            </h1>
+            <p class="hero-desc">
+              Thông tin thu và chi được trình bày rõ ràng để các thành viên tiện theo dõi kế hoạch chung. Báo cáo độc lập, chuẩn hóa thông tin và tiện lợi khi đóng góp.
+            </p>
+            <div class="hero-actions">
+              <a href="#chuyen-khoan" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Xem hướng dẫn chuyển khoản
+              </a>
+              <a href="#ke-hoach" class="btn btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                Xem kế hoạch tài chính
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Graphic Composition -->
+          <div class="hero-graphic">
+            <div class="editorial-card">
+              <div class="editorial-badge">Kế hoạch ngân sách lớp</div>
+              <div class="editorial-label">Ước tính tổng quỹ sau thu</div>
+              <div class="editorial-amount" id="heroTotalFund">5.099.000 ₫</div>
+
+              <div class="editorial-metric-row">
+                <div class="editorial-metric-item">
+                  <span class="editorial-metric-val" id="heroExpectedExpense">4.000.000 ₫</span>
+                  <span class="editorial-metric-lbl">Dự kiến tổng chi</span>
+                </div>
+                <div class="editorial-metric-item">
+                  <span class="editorial-metric-val" id="heroExpectedReserve">1.099.000 ₫</span>
+                  <span class="editorial-metric-lbl">Dự còn sau chi</span>
+                </div>
+              </div>
+
+              <div class="editorial-disclaimer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Số liệu cấu hình phục vụ kế hoạch, chưa phải số dư ngân hàng thực tế.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARGET CONTRIBUTION BANNER (Thẻ mức đóng quỹ nổi bật) -->
+    <section class="target-section" id="muc-dong">
+      <div class="container">
+        <div class="target-banner">
+          <div class="target-content">
+            <div>
+              <div class="target-eyebrow">MỨC ĐÓNG DỰ KIẾN / NGƯỜI</div>
+              <div class="target-amount-box">
+                <span class="target-amount" id="targetAmountDisplay">40.000 ₫</span>
+                <span class="target-per">/ thành viên</span>
+              </div>
+              <div class="target-meta-pills">
+                <span class="target-pill">Kỳ quỹ: Quý IV / 2026</span>
+                <span class="target-pill">Mã lớp: 2505QLNG</span>
+                <span class="target-pill">Phép tính: 63 khoản tương đương</span>
+              </div>
+              <p class="target-note">
+                * Thông tin này là cấu hình kế hoạch của trang, không phải xác nhận nghĩa vụ pháp lý hay tình trạng thanh toán của từng cá nhân.
+              </p>
+            </div>
+
+            <div class="target-actions-box">
+              <button class="btn btn-light" id="btnCopyTransferContent" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Sao chép nội dung chuyển khoản
+              </button>
+              <div style="font-size: 0.8rem; color: #CBD5E1;">
+                Cú pháp: <strong id="transferContentPill" style="font-family: var(--font-mono); color: #FFFFFF;">QUYLOP 2505QLNG BSQ42026</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINANCIAL OVERVIEW (Bức tranh tài chính) -->
     <section class="section-wrap" id="ke-hoach">
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Kế hoạch ngân sách</div>
-          <h2 class="section-title">TỔNG QUAN</h2>
+          <h2 class="section-title">Bức tranh tài chính</h2>
           <p class="section-desc">
             Các khoản thu, chi và số dư dự kiến theo kế hoạch được cung cấp. Số liệu được đồng bộ và tính toán tự động từ bộ cấu hình chuẩn của lớp.
           </p>
@@ -2388,7 +2407,7 @@
               </svg>
             </button>
             <div class="faq-answer">
-              Nội dung chuẩn hóa được tạo sẵn là <code>QUYLOP 2505QLNG</code>. Bạn có thể bấm nút "Sao chép nội dung" trên website để dán trực tiếp vào ứng dụng ngân hàng khi thực hiện giao dịch.
+              Nội dung chuẩn hóa được tạo sẵn là <code>QUYLOP 2505QLNG BSQ42026</code>. Bạn có thể bấm nút "Sao chép nội dung" trên website để dán trực tiếp vào ứng dụng ngân hàng khi thực hiện giao dịch.
             </div>
           </div>
 
@@ -2503,10 +2522,10 @@
           bankName: "MB Bank",
           accountNumber: "9704229203196383882",
           accountHolder: "Trần Bùi Nhựt Hy",
-          transferMessage: "QUYLOP 2505QLNG",
+          transferMessage: "QUYLOP 2505QLNG BSQ42026",
           // Ảnh QR do người dùng cung cấp (Imgur)
           qrImageUrls: [
-            "https://i.imgur.com/tYlyOyJ.png"
+            "https://i.imgur.com/gIWVaTv.png"
           ]
         },
         externalLinks: {
@@ -2576,21 +2595,9 @@
 
       /* THEME MANAGEMENT */
       function initTheme() {
-        const savedTheme = (() => {
-          try {
-            return localStorage.getItem("cf_theme");
-          } catch (e) {
-            return null;
-          }
-        })();
-
-        if (savedTheme) {
-          document.documentElement.setAttribute("data-theme", savedTheme);
-        } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          document.documentElement.setAttribute("data-theme", "dark");
-        } else {
-          document.documentElement.setAttribute("data-theme", "light");
-        }
+        // Luôn mở trang ở chế độ sáng, không phụ thuộc giao diện hệ điều hành hay lựa chọn cũ.
+        document.documentElement.setAttribute("data-theme", "light");
+        try { localStorage.setItem("cf_theme", "light"); } catch (e) {}
 
         const themeBtn = document.getElementById("themeToggleBtn");
         if (themeBtn) {

@@ -1735,8 +1735,67 @@
       }
     }
   </style>
+
+  <style id="fund-countdown-lock-style">
+    #fundCountdownGate{position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;padding:22px;background:radial-gradient(ellipse at top,#263a63 0%,#101827 58%,#080d16 100%);color:#f8fafc;font-family:inherit;text-align:center;overflow:auto}
+    #fundCountdownGate[hidden]{display:none!important}
+    #fundCountdownGate .gate-card{width:min(100%,480px);padding:clamp(24px,6vw,42px);border:1px solid rgba(255,255,255,.16);border-radius:28px;background:rgba(255,255,255,.08);box-shadow:0 24px 80px rgba(0,0,0,.32);backdrop-filter:blur(14px)}
+    #fundCountdownGate .gate-icon{font-size:42px;margin-bottom:12px}
+    #fundCountdownGate h1{font-size:clamp(24px,6vw,34px);line-height:1.2;margin:0 0 12px;color:#fff}
+    #fundCountdownGate .gate-desc{font-size:15px;line-height:1.65;color:#dbe4f2;margin:0 auto 22px;max-width:360px}
+    #fundCountdownGate .gate-countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:20px 0 22px}
+    #fundCountdownGate .gate-time{padding:13px 4px;border-radius:14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1)}
+    #fundCountdownGate .gate-time strong{display:block;font-size:clamp(23px,6vw,32px);font-variant-numeric:tabular-nums;line-height:1.15}
+    #fundCountdownGate .gate-time span{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#cbd5e1;margin-top:6px}
+    #fundCountdownGate .gate-note{font-size:13px;line-height:1.6;color:#cbd5e1;margin:0}
+    @media(max-width:360px){#fundCountdownGate{padding:12px}#fundCountdownGate .gate-card{padding:22px 16px}#fundCountdownGate .gate-countdown{gap:5px}}
+  </style>
+
 </head>
 <body>
+
+  <section id="fundCountdownGate" role="dialog" aria-modal="true" aria-labelledby="fundGateTitle">
+    <div class="gate-card">
+      <div class="gate-icon" aria-hidden="true">2505QLNG</div>
+      <h1 id="fundGateTitle">THÔNG BÁO TẠM THỜI</h1>
+      <p class="gate-desc">Để bảo đảm số liệu thu – chi được cập nhật chính xác và minh bạch, cổng đóng quỹ tạm thời khóa chức năng thao tác trong thời gian chờ sao kê ngân hàng đợt thứ nhất, mong các bạn thông cảm và quay lại sau thời điểm mở hệ thống.</p>
+      <div class="gate-countdown" aria-label="Thời gian còn lại">
+        <div class="gate-time"><strong id="gateDays">00</strong><span>Ngày</span></div>
+        <div class="gate-time"><strong id="gateHours">00</strong><span>Giờ</span></div>
+        <div class="gate-time"><strong id="gateMinutes">00</strong><span>Phút</span></div>
+        <div class="gate-time"><strong id="gateSeconds">00</strong><span>Giây</span></div>
+      </div>
+      <p class="gate-note"> Hệ thống dự kiến tự động mở lại vào <strong>00:00 ngày 21/10/2026</strong> (giờ Việt Nam). Sau thời điểm này, các chức năng trên website sẽ hiển thị trở lại để tiếp tục thao tác. Xin cảm ơn sự thông cảm và phối hợp của các bạn.</p>
+    </div>
+  </section>
+  <script id="fund-countdown-gate-script">
+    (() => {
+      const deadline = new Date('2026-10-21T00:00:00+07:00').getTime();
+      const gate = document.getElementById('fundCountdownGate');
+      const pad = n => String(n).padStart(2, '0');
+      function updateGate() {
+        const remaining = deadline - Date.now();
+        if (remaining <= 0) {
+          gate.hidden = true;
+          document.documentElement.style.overflow = '';
+          return;
+        }
+        gate.hidden = false;
+        document.documentElement.style.overflow = 'hidden';
+        const days = Math.floor(remaining / 86400000);
+        const hours = Math.floor((remaining % 86400000) / 3600000);
+        const minutes = Math.floor((remaining % 3600000) / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+        document.getElementById('gateDays').textContent = pad(days);
+        document.getElementById('gateHours').textContent = pad(hours);
+        document.getElementById('gateMinutes').textContent = pad(minutes);
+        document.getElementById('gateSeconds').textContent = pad(seconds);
+      }
+      updateGate();
+      setInterval(updateGate, 1000);
+    })();
+  </script>
+
 
   <!-- Live Announcer for Accessibility -->
   <div id="toastRegion" class="toast-container" aria-live="polite" aria-atomic="true">
